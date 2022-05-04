@@ -9,7 +9,10 @@ const Recommends = () => {
 
 	return (
 		<Container>
-			<h1> Recommends For You</h1>
+			<Link to="/recommended">
+        <h1> Recommends For You</h1>
+      
+      </Link>
 			<Content>
 				{
 					movies.map((data, key) => {
@@ -17,7 +20,7 @@ const Recommends = () => {
 						return ( data.type == "recommend" && 
 							<Wrap key={key}>
 								<Link to={`/detail/${ data.id }`}>
-									<img  src={data.backgroundImg} />
+									<img  src={data.cardImg} />
 								</Link>
 							</Wrap>);
 					}

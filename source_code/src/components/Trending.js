@@ -9,7 +9,9 @@ const Trending = () => {
 
 	return (
 		<Container>
-			<h1>Trending</h1>
+			<Link to="/trending">
+        <h1>Trending</h1>
+      </Link>
 			<Content>
 				{
 					movies.map((data, key) => {
@@ -17,7 +19,7 @@ const Trending = () => {
 						return ( data.type == "trending" && 
             <Wrap key={key}>
             <Link to={`/detail/${ data.id }`}>
-              <img  src={data.backgroundImg} />
+              <img  src={data.cardImg} />
             </Link>
           </Wrap>);
 					}

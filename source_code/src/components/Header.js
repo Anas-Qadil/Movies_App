@@ -30,29 +30,27 @@ const Header = (props) => {
 						<span>Home</span>
 					</A>
 				</Link>
-				<Link to="/home">
+				<Link to="/recommended">
 					<A>
-						<img src="/images/home-icon.svg" alt="HOME" />
-						<span>New Movies</span>
-					</A>
-				</Link>
-				<Link to="/home">
-					<A>
-						<img src="/images/home-icon.svg" alt="HOME" />
+						<img src="/images/series-icon.svg" alt="HOME" />
 						<span>Recommended</span>
 					</A>
 				</Link>
-				<Link to="/home">
+				<Link to="/trending">
 					<A>
-						<img src="/images/home-icon.svg" alt="HOME" />
-						<span>Hot</span>
+						<img src="/images/watchlist-icon.svg" alt="HOME" />
+						<span>Trending</span>
+					</A>
+				</Link>
+				<Link to="/upcoming">
+					<A>
+						<img src="/images/movie-icon.svg" alt="HOME" />
+						<span>Upcoming Movies</span>
 					</A>
 				</Link>
 			
 		</NavMenu>
 			}
-			
-				
 				{
 					!user.isLogged  ?
 					(<Login to="/login">Login</Login>) : 

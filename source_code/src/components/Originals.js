@@ -17,7 +17,7 @@ const Originals = () => {
 						return ( data.type == "original" && 
             <Wrap key={key}>
             <Link to={`/detail/${ data.id }`}>
-              <img  src={data.backgroundImg} />
+              <img  src={data.cardImg} />
             </Link>
           </Wrap>);
 					}

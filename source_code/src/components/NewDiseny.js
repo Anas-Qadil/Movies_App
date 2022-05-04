@@ -9,15 +9,18 @@ const NewDisney = () => {
 
 	return (
 		<Container>
-			<h1> New To You</h1>
-			<Content>
+			<Link to="/upcoming">
+        <h1> New To You</h1>
+      </Link>
+			
+      <Content>
 				{
 					movies.map((data, key) => {
 					{
 						return ( data.type == "new" && 
             <Wrap key={key}>
             <Link to={`/detail/${ data.id }`}>
-              <img  src={data.backgroundImg} />
+              <img  src={data.cardImg} />
             </Link>
           </Wrap>);
 					}

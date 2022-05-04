@@ -1,4 +1,3 @@
-import React from "react"
 import { createSlice, configureStore } from "@reduxjs/toolkit"
 import data from "../disneyPlusMoviesData.json"
 
@@ -17,7 +16,11 @@ const initialState = {
 		picture: "default"
 	},
 	isLogged : false,
-	Movies: movies
+	Movies: movies,
+	upcomingmovies: "default",
+	recommanded: "default",
+	trending: "default",
+
 }
 
 
@@ -36,7 +39,16 @@ const userSlice = createSlice({
 			state.userInfo.email = "default";
 			state.userInfo.picture = "default";
 			state.isLogged = false;
-		}
+		},
+		upcoming : (state, payload) => {
+			state.upcomingmovies = payload.payload;
+		},
+		recom : (state, payload) => {
+			state.recommanded = payload.payload;
+		},
+		trend : (state, payload) => {
+			state.trending = payload.payload;
+		},
 	}
 });
 
@@ -44,5 +56,5 @@ const store = configureStore({
 	reducer: userSlice.reducer
 })
 
-export const {addUser, logOut} = userSlice.actions;
+export const {addUser, logOut, upcoming, recom, trend} = userSlice.actions;
 export {store};
