@@ -2,27 +2,25 @@ import styled from "styled-components";
 import {useState, useEffect} from "react";
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import { BrowserRouter as Router, Route } from "react-router-dom";
-
+import { useDispatch, useSelector } from "react-redux";
+import { addUser } from "../store/UserSlice";
+import { useNavigate } from "react-router-dom"
 
 const CreateAccount = (props) => {
 	
-	const [isAuth, setIsAuth] = useState(0);
-	const [Login, setLogin] = useState({
-		FullName: "",
-		Picture: "",
-		email: "",
-	})
+	const curUser = useSelector((state) => state);
+	const history = useNavigate();
+	const dispatch = useDispatch();
 
-	const responseFacebook = (response) => {
+	const responseFacebook = async (response) => {
 		const User = {
-			FullName: response.name,
-			Picture: response.picture,
-			email: response.email
+			fullName: await response.name,
+			email: await response.email,
+			picture: await response.picture,
 		}
-		setLogin(User);
-		console.log(User);
+		await dispatch(addUser(User));
+		history("/home");
 	}
-
 	return (
 		<Container>
 			<Content>

@@ -1,8 +1,17 @@
 import styled from "styled-components";
-
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
 	
+	const user = useSelector(state => state);
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		user.isLogged && navigate("/home");
+	}, []);
+
 	return(
 		<Container>
 			<Content>

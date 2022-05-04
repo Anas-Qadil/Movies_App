@@ -5,22 +5,29 @@ import Login from "./components/Login";
 import Header from "./components/Header"
 import Test from "./components/test"
 import CreateAccount from './components/CreateAccount';
+import Home from './components/Home';
+import Detail from './components/Details';
 
+import {store} from "./store/UserSlice";
+import {Provider} from "react-redux"
 
 function App() {
-  console.log(Test);
-  return (
 
-    <div className="App">
-      <Router>
-        <Header />
-        <Routes>
-          <Route exact path="/" element={<Login />} />
-          <Route path="/test" element={<Test />} />
-          <Route path="/NewAccount" element={<CreateAccount />} />
-        </Routes>
-      </Router>
-    </div>
+  return (
+    <Provider store={store}>
+      <div className="App">
+        <Router>
+          <Header />
+          <Routes>
+            <Route exact path="/" element={<Login />} />
+            <Route path="/test" element={<Test />} />
+            <Route path="/login" element={<CreateAccount />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/detail/:id" element={<Detail />} />
+          </Routes>
+        </Router>
+      </div>
+    </Provider>
   );
 }
 
