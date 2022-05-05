@@ -45,7 +45,13 @@ const Header = (props) => {
 				<Link to="/upcoming">
 					<A>
 						<img src="/images/movie-icon.svg" alt="HOME" />
-						<span>Upcoming Movies</span>
+						<span>Upcoming</span>
+					</A>
+				</Link>
+				<Link to="/search">
+					<A>
+						<img src="/images/search-icon.svg" alt="HOME" />
+						<span>Search</span>
 					</A>
 				</Link>
 			
@@ -107,6 +113,7 @@ img {
 	min-width: 20px;
 	width: 20px;
 	z-index: auto;
+	margin-right: 5px;
 }
 
 span {

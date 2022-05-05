@@ -16,6 +16,8 @@ import TrailerApi from './api/TrailerApi';
 import Upcoming from './api/Upcoming';
 import ApiMovieDetail from "./api/ApiMovieDetails"
 import Watch from './api/Watch';
+import Search from './api/Search';
+import MovieSearch from './api/MovieSearch';
 
 function App() {
 
@@ -35,6 +37,8 @@ function App() {
             <Route path="/upcoming" element={<Upcoming />} />
             <Route path="/movie/:data" element={<ApiMovieDetail />} />
             <Route path="/watch/:id" element={<Watch />} />
+            <Route path="/search/" element={<Search />} />
+            <Route path="/moviesearch/:id" element={<MovieSearch />} />
           </Routes>
         </Router>
       </div>

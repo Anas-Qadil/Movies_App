@@ -5,7 +5,7 @@ import { useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import axios from "axios"
 
-const Watch = () => {
+const MovieSearchWatch = () => {
 
 	const  movies = useSelector(state => state.Movies);
 	const [trailer, setTrailer] = useState("null");
@@ -87,4 +87,4 @@ const Wrap = styled.div`
     top: 0;
   }
 `;
-export default Watch;
+export default MovieSearchWatch;
