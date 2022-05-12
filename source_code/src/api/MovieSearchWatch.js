@@ -8,6 +8,9 @@ import axios from "axios"
 const MovieSearchWatch = () => {
 
 	const  movies = useSelector(state => state.Movies);
+	const user = useSelector(state => state);
+	if (user.isLogged == false)
+    	navigate("/");
 	const [trailer, setTrailer] = useState("null");
 	const {id} = useParams();
 
@@ -18,15 +21,14 @@ const MovieSearchWatch = () => {
 		.then(res => {
 			const key = res.data.results[res.data.results.length - 1].key;
 			setTrailer((state) => key);
-		});
+		}).catch((e)=>{
+			alert(e);
+			navigate("/home");
+		  });;
 	}, []);
 
 	const YoutubeBaseUrl = "https://www.youtube.com/embed/";
 
-	if (trailer != "null")
-	{
-		console.log(YoutubeBaseUrl + trailer);
-	}
 	return (
 		<Container>
 		<Wrap>

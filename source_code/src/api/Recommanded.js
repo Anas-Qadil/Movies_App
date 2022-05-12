@@ -15,21 +15,20 @@ const Recommended = (props) => {
 
 	const user = useSelector(state => state);
 	const [state, setState] = useState([]);
-
+	if (user.isLogged == false)
+    	navigate("/");
 	const dispatch = useDispatch();
-
 	const navigate = useNavigate();
-
 	useEffect(() => {
 		axios.get("https://api.themoviedb.org/3/movie/popular?api_key=25c04db285e4cde923dc81adbfaff8d0")
-		.then(res => setState(res.data.results));
+		.then(res => setState(() => res.data.results)).catch((e)=>{
+			alert(e);
+			navigate("/home");
+		  });;
 	}, [])
 
 	if (state.length > 0)
-	{
 		dispatch(recom(state));
-		console.log(state);
-	}
 
 	return (
 			<Container>
@@ -38,8 +37,9 @@ const Recommended = (props) => {
 					state && state.map((data, key) => { 
 					{
 						const imgUrl = "https://image.tmdb.org/t/p/original//";
+						if (data.poster_path == null)
+							return ;
 						const newUrl = imgUrl + data.poster_path;
-						// console.log(newUrl);
 						return ( 
 							<Wrap key={key}>
 								<Link to={{
@@ -50,7 +50,6 @@ const Recommended = (props) => {
 								</Link>
 							</Wrap>);
 					}
-
 					})
 				}
 			</Content>

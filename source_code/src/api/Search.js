@@ -11,6 +11,7 @@ import axios from 'axios'
 import { Link } from "react-router-dom";
 import { upcoming } from "../store/UserSlice";
 
+
 const switchArray = (data) => {
 	const res = data.data.results;
 	return res;
@@ -21,17 +22,26 @@ const Search = (props) => {
 	const [value, setValue] = useState("");
 	const [movieSearch, setMovieSearch] = useState(0);
 	const endPoint = "https://api.themoviedb.org/3/search/movie?api_key=25c04db285e4cde923dc81adbfaff8d0";
+	const navigate = useNavigate();
+	const user = useSelector(state => state);
+	if (user.isLogged == false)
+		navigate("/");
+
+	const requestHandler = (str) => {
+		axios.get(endPoint, {params: {
+			query: str
+		}}
+		).then((res)=>setMovieSearch((state) => switchArray(res))).catch((e)=>{
+			alert(e);
+			navigate("/home");
+		  });;
+	}
 
 	const onChangeHandler = (e) =>{
 		const inputValue = e.target.value;
-		axios.get(endPoint, {params: {
-			query: inputValue
-		}}
-		).then((res)=>setMovieSearch((state) => switchArray(res)));
+		if (inputValue != "" && inputValue != undefined && inputValue != null)
+			requestHandler(inputValue);
 	}
-
-	if (movieSearch != 0)
-		console.log(movieSearch);
 
 	return (
 		<All1>
@@ -45,20 +55,23 @@ const Search = (props) => {
 					movieSearch != 0  && movieSearch.map((data, key) => { 
 					{
 						const imgUrl = "https://image.tmdb.org/t/p/original//";
+						if (data.poster_path == null)
+							return ;
 						const newUrl = imgUrl + data.poster_path;
-						// console.log(newUrl);
-						return ( 
-							<Wrap key={key}>
-								<Link 
-								// to={`/movie/${ data.id }`}
-								to={{
-									pathname: `/moviesearch/${ data.id }`,
-									query: data
-								  }}
-								>
-									<img  src={newUrl} />
-								</Link>
-							</Wrap>);
+						if (imgUrl == undefined || imgUrl == "")
+							return ;
+						else
+							return ( 
+								<Wrap key={key}>
+									<Link 
+									to={{
+										pathname: `/moviesearch/${ data.id }`,
+										query: data
+									}}
+									>
+										<img  src={newUrl} />
+									</Link>
+								</Wrap>);
 					}
 
 					})
@@ -72,8 +85,10 @@ const Search = (props) => {
 const SearchInput = styled.input`
 	width: 60%;
 	height: 100%;
-	padding: 10px 4px;
+	padding: 16px 14px;
 	border-radius: 5px;
+	outline:none;
+	border: 1px solid white;
 `;
 
 const All1 = styled.div`

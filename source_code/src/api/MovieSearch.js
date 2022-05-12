@@ -4,20 +4,26 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const MovieSearch = (props) => {
 
 	const { id } = useParams();
 	const [state, setState] = useState(0);
+  const user = useSelector(state => state);
+  const navigate = useNavigate();
+  if (user.isLogged == false)
+    navigate("/");
 
-	console.log(id);
 	const endPoint = `https://api.themoviedb.org/3/movie/${id}?api_key=25c04db285e4cde923dc81adbfaff8d0&language=en-US&external_source=imdb_id`;
 
 	useEffect(() => {
-		axios.get(endPoint).then((res) => setState(res.data));
+		axios.get(endPoint).then((res) => setState(res.data)).catch((e)=>{
+      alert(e);
+      navigate("/home");
+    });;
 	}, []);
 
-	console.log(state.backdrop_path);
 	const imgUrl = "https://image.tmdb.org/t/p/original//";
 	const newUrl = imgUrl + state.backdrop_path;
   return (

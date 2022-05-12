@@ -9,6 +9,9 @@ const ApiMovieDetail = (props) => {
 
 	const { data } = useParams();
 	let movies = useSelector((state) => state);
+  const user = useSelector(state => state);
+  if (user.isLogged == false)
+    navigate("/");
 	let checker = false;
 	let movie = "null";
 	const navigate = useNavigate();
@@ -51,9 +54,8 @@ const ApiMovieDetail = (props) => {
 	
 	const imgUrl = "https://image.tmdb.org/t/p/original//";
 	const newUrl = imgUrl + movie[0].backdrop_path;
-
+  
 	const posterurl = imgUrl + movie[0].poster_path;
-	console.log(newUrl);
 
   return (
     <Container>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import Recommends from "../components/Recommends";
@@ -14,25 +14,25 @@ import { upcoming } from "../store/UserSlice";
 const Upcoming = (props) => {
 
 	const user = useSelector(state => state);
+  const navigate = useNavigate();
+  if (user.isLogged == false)
+    navigate("/");
+
 	const [state, setState] = useState([]);
-
 	const dispatch = useDispatch();
-
-	const navigate = useNavigate();
 
 	useEffect(() => {
 		axios.get("https://api.themoviedb.org/3/movie/upcoming?api_key=25c04db285e4cde923dc81adbfaff8d0")
 		.then(res => {
 			setState(res.data.results);
-			
-		});
+		}).catch((e)=>{
+      alert(e);
+      navigate("/home");
+    });
 	}, [])
 
 	if (state.length > 0)
-	{
 		dispatch(upcoming(state));
-	}
-
 
 	return (
 			<Container>
@@ -41,12 +41,12 @@ const Upcoming = (props) => {
 					state && state.map((data, key) => { 
 					{
 						const imgUrl = "https://image.tmdb.org/t/p/original//";
+            if (data.poster_path == null)
+							return ;
 						const newUrl = imgUrl + data.poster_path;
-						// console.log(newUrl);
 						return ( 
 							<Wrap key={key}>
 								<Link 
-								// to={`/movie/${ data.id }`}
 								to={{
 									pathname: `/movie/${ data.id }`,
 									query: data

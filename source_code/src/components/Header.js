@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { logOut } from "../store/UserSlice";
+import Fire from "./Fire"
 
 const Header = (props) => {
 
@@ -20,7 +21,8 @@ const Header = (props) => {
 	return (
 		<Nav>
 			<Logo to="/">
-				<img src="/images/logo.svg" alt="logo" />
+				<Fire />
+				<h1>Fire</h1>
 			</Logo>
 			{
 				user.isLogged && <NavMenu>
@@ -68,14 +70,12 @@ const Header = (props) => {
 						</DropDown>
 					</SignOut>  )
 				}
-				
-
-				
 		</Nav>
 	)
 }
 
 const Nav = styled.nav`
+	margin-top:10px;
 	position: fixed;
 	top:0;
 	left: 0;
@@ -91,15 +91,21 @@ const Nav = styled.nav`
 `;
 
 const Logo = styled(Link)`
+	margin-bottom: 20px;
 	padding: 0;
 	width: 80px;
 	margin-top: 4px;
 	max-height: 70px;
 	font-size: 0;
 	display: inline-block;
-	img {
-		display: block;
-		width: 100%;
+	h1{
+		color:white;
+		font-size:20px;
+		position: absolute;
+		letter-spacing: 1px;
+		margin-left: 40px;
+		margin-top: 0px;
+		color: 	#f27d0c;
 	}
 `;
 

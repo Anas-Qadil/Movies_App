@@ -16,19 +16,23 @@ const TrailerApi = (props) => {
 
 	const user = useSelector(state => state);
 	const [state, setState] = useState([]);
-
 	const navigate = useNavigate();
+	if (user.isLogged == false)
+    	navigate("/");
+
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		axios.get("https://api.themoviedb.org/3/trending/movie/week?api_key=25c04db285e4cde923dc81adbfaff8d0")
-		.then(res => setState(res.data.results));
+		.then(res => setState(res.data.results)).catch((e)=>{
+			alert(e);
+			navigate("/home");
+		  });;
 	}, [])
 
 	if (state.length > 0)
 	{
 		dispatch(trend(state));
-		console.log(state);
 	}
 
 	return (
@@ -38,8 +42,9 @@ const TrailerApi = (props) => {
 					state && state.map((data, key) => { 
 					{
 						const imgUrl = "https://image.tmdb.org/t/p/original//";
+						if (data.poster_path == null)
+							return ;
 						const newUrl = imgUrl + data.poster_path;
-						// console.log(newUrl);
 						return ( 
 							<Wrap key={key}>
 								<Link to={{

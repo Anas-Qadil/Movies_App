@@ -23,7 +23,7 @@ const Home = (props) => {
 	
 	return (
 		<Container>
-			<h1>hello {user.userInfo.fullName} </h1>
+			{/* <h1>hello {user.userInfo.fullName} </h1> */}
 			<ImageSlider />
 			<Viewers />
 			<Recommends />
@@ -35,6 +35,7 @@ const Home = (props) => {
 }
 
 const Container = styled.main`
+	margin-top:20px;
 	position: relative;
 	min-height: calc(100vh - 250px);
 	overflow-x: hidden;

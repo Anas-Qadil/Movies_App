@@ -13,7 +13,6 @@ const Detail = (props) => {
 			return (data)
 	})
 
-	console.log(movie[0]);
 
   return (
     <Container>

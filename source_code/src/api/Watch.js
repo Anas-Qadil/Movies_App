@@ -4,13 +4,17 @@ import data from "../disneyPlusMoviesData.json"
 import { useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 const Watch = () => {
 
 	const  movies = useSelector(state => state.Movies);
+	const user = useSelector((state) => state);
 	const [trailer, setTrailer] = useState("null");
 	const {id} = useParams();
-
+	const navigate = useNavigate();
+	if (user.isLogged == false)
+    	navigate("/");
 	const baseUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=25c04db285e4cde923dc81adbfaff8d0`;
 
 	useEffect(() => {
@@ -18,25 +22,17 @@ const Watch = () => {
 		.then(res => {
 			const key = res.data.results[res.data.results.length - 1].key;
 			setTrailer((state) => key);
-		});
+		}).catch((e)=>{
+			alert(e);
+			navigate("/home");
+		  });;
 	}, []);
 
 	const YoutubeBaseUrl = "https://www.youtube.com/embed/";
 
-	if (trailer != "null")
-	{
-		console.log(YoutubeBaseUrl + trailer);
-	}
 	return (
 		<Container>
 		<Wrap>
-			
-			{/* <video autoPlay={true} loop={true} playsInline={true} controls>
-			<source
-				src={trailer != "null" ? YoutubeBaseUrl + trailer : "/videos/1564674844-disney.mp4"}
-				type="video/mp4"
-				/>
-			</video> */}
 			<iframe
 				src={YoutubeBaseUrl + trailer}
 				frameborder="0"
