@@ -10,4 +10,5 @@
 <li>Redux</li>
 <li>Axios</li>
 </ul>
-<img src="/Anas-Qadil/Flames/raw/master/home.png"/>
+![alt text](https://github.com/[Anas-Qadil]/[Flames]/blob/[master]/Home.png?raw=true)
+
