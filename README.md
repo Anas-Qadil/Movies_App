@@ -17,3 +17,7 @@
 <img src="https://github.com/Anas-Qadil/Flames/blob/master/slider.png?raw=true" />
 <img src="https://github.com/Anas-Qadil/Flames/blob/master/recommends.png?raw=true" />
 <img src="https://github.com/Anas-Qadil/Flames/blob/master/trends.png?raw=true" />
+<img src="https://github.com/Anas-Qadil/Flames/blob/master/multi.png?raw=true" />
+<img src="https://github.com/Anas-Qadil/Flames/blob/master/spiderman.png?raw=true" />
+<img src="https://github.com/Anas-Qadil/Flames/blob/master/film page.png?raw=true" />
+<img src="https://github.com/Anas-Qadil/Flames/blob/master/search.png?raw=true" />
