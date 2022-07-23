@@ -4,13 +4,25 @@
 <hr />
 <h4>flames is a realtime website. the movies are auto generated depending on trending movies, and they are fetched from A movies Webstie</h4>
 <hr />
-<h2>technologies</h2>
+<h2>Technologies</h2>
 <ul>
-<li>React</li>
-<li>Redux</li>
-<li>Axios</li>
+<li>React Fron End Library</li>
+<li>Redux State Manager Library</li>
+<li>Axios For API Requests</li>
 </ul>
 <hr />
+<h1>Installation</h1>
+## Installation
+
+Use the package manager [npm](https://pip.pypa.io/en/stable/) to install  client and server.
+
+```bash
+npm --prefix ./server install
+npm --prefix ./client install
+```
+## How to launch
+
+## Screenshots
 <h1>Enjoy</h1>
 <img src="https://github.com/Anas-Qadil/Flames/blob/master/Home.png?raw=true" />
 <img src="https://github.com/Anas-Qadil/Flames/blob/master/login.png?raw=true" />
@@ -21,3 +33,6 @@
 <img src="https://github.com/Anas-Qadil/Flames/blob/master/spiderman.png?raw=true" />
 <img src="https://github.com/Anas-Qadil/Flames/blob/master/film page.png?raw=true" />
 <img src="https://github.com/Anas-Qadil/Flames/blob/master/search.png?raw=true" />
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
