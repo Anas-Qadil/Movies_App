@@ -13,4 +13,7 @@
 <hr />
 <h1>Enjoy</h1>
 <img src="https://github.com/Anas-Qadil/Flames/blob/master/Home.png?raw=true" />
+<video width="320" height="240" controls>
+  <source src="[movie.mp4](https://github.com/Anas-Qadil/Flames/blob/master/video.mp4?raw=true)" type="video/mp4">
+</video>
 
