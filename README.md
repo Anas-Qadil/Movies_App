@@ -13,7 +13,7 @@
 <hr />
 <h1>Enjoy</h1>
 <img src="https://github.com/Anas-Qadil/Flames/blob/master/Home.png?raw=true" />
-<video width="320" height="240" controls>
-  <source src="https://github.com/Anas-Qadil/Flames/blob/master/video.mp4?raw=true" type="video/mp4">
-</video>
-
+<img src="https://github.com/Anas-Qadil/Flames/blob/master/login.png?raw=true" />
+<img src="https://github.com/Anas-Qadil/Flames/blob/master/slider.png?raw=true" />
+<img src="https://github.com/Anas-Qadil/Flames/blob/master/recommends.png?raw=true" />
+<img src="https://github.com/Anas-Qadil/Flames/blob/master/trends.png?raw=true" />
