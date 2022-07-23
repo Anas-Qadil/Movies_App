@@ -10,6 +10,7 @@
 <li>Redux</li>
 <li>Axios</li>
 </ul>
-![alt text](https://github.com/Anas-Qadil/Flames/blob/master/Home.png?raw=true)
+<hr />
+<h1>Enjoy</h1>
 <img src="https://github.com/Anas-Qadil/Flames/blob/master/Home.png?raw=true" />
 
