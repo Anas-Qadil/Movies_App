@@ -17,8 +17,7 @@
 Use the package manager [npm](https://pip.pypa.io/en/stable/) to install  client and server.
 
 ```bash
-npm --prefix ./server install
-npm --prefix ./client install
+npm install
 ```
 ## How to launch
 
